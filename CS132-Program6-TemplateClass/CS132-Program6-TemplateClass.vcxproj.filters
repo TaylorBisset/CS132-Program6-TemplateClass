@@ -21,6 +21,9 @@
     <ClCompile Include="TBString.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="double_linked_list.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="TBString.h">
