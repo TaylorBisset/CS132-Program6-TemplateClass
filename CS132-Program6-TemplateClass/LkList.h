@@ -1,7 +1,7 @@
-// LKList.h
+// LkList.h
 
 /*
-Contains the declaration of the LKList class for managing linked lists of strings.
+Contains the declaration of the LkList class for managing linked lists of strings.
 It defines the structure and interface of the class.
 */
 
@@ -31,20 +31,20 @@ public:
 };
 
 template <typename T>
-class LKList 
+class LkList 
 {
 public:
-	LKList();
-	virtual ~LKList();
-	LKList(LKList& other);
-	// LKList& operator=(const LKList& other);
+	LkList();
+	virtual ~LkList();
+	LkList(LkList& other);
+	// LkList& operator=(const LkList& other);
 
 	bool insert(const T& str);
 	bool insert_back(const T& str);
 
 	bool remove(const T& str);
 
-	//void merge(LKList & src);
+	//void merge(LkList & src);
 
 	void resetIterator()const;
 	bool hasMore()const;
@@ -60,5 +60,5 @@ private:
 };
 
 template <typename T>
-ostream& operator << (ostream& outStr, const LKList<T>& lst);
+ostream& operator << (ostream& outStr, const LkList<T>& lst);
 #endif // LKLIST_H

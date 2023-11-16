@@ -6,20 +6,24 @@ It contains the actual code for the class's methods and functions.
 */
 
 #include "LkList.h"
-#include <iostream>
-using namespace std;
-LKList::LKList() 
+
+template <typename T>
+LkList<T>::LkList() 
 {
 	head = nullptr;
 	tail = nullptr;
 	it = nullptr;
 	count = 0;
 }
-LKList::~LKList() 
+
+template <typename T>
+LkList<T>::~LkList() 
 { 
 	//TODO need to write this destructor
 }
-LKList::LKList(LKList& other) 
+
+template <typename T>
+LkList<T>::LkList(LkList& other) 
 {
 	head = nullptr;
 	tail = nullptr;
@@ -29,12 +33,16 @@ LKList::LKList(LKList& other)
 	while (other.hasMore())
 	insert_back(other.next());
 }
-//LKList& LKList::operator=(const LKList& rhs){}
-int LKList::size() const 
+
+template <typename T>
+//LkList& LkList::operator=(const LkList& rhs){}
+int LkList<T>::size() const 
 {
 	return count;
 }
-bool LKList::insert_back(const TBString& str) 
+
+template <typename T>
+bool LkList<T>::insert_back(const T& str) 
 {
 	if (count == 0) 
 	{ // empty list
@@ -50,9 +58,11 @@ bool LKList::insert_back(const TBString& str)
 	count++;
 	return true;
 }
-bool LKList::remove(const TBString& str) 
+
+template <typename T>
+bool LkList<T>::remove(const T& str) 
 {
-	Node* temp = head;
+	Node<T>* temp = head;
 	bool removed = false;
 	if (count == 0)
 		return false;
@@ -84,8 +94,8 @@ bool LKList::remove(const TBString& str)
 			temp = temp->next;
 		if (temp != nullptr && temp->data == str) 
 		{ // found target in middle
-			Node* before = temp->prev;
-			Node* after = temp->next;
+			Node<T>* before = temp->prev;
+			Node<T>* after = temp->next;
 			before->next = after;
 			after->prev = before;
 			removed = true;
@@ -102,12 +112,14 @@ bool LKList::remove(const TBString& str)
 	}
 	return removed;
 }
-bool LKList::insert(const TBString& str) 
+
+template <typename T>
+bool LkList<T>::insert(const T& str) 
 {
 	bool didInsert = false;
 	if (count == 0) 
 	{ // empty list
-		head = tail = new Node(str);
+		head = tail = new Node<T>(str);
 		didInsert = true;
 	}
 	else if (count == 1) 
@@ -129,7 +141,7 @@ bool LKList::insert(const TBString& str)
 	}
 	else 
 	{ // List > one node
-		Node* temp = head;
+		Node<T>* temp = head;
 		while (temp != nullptr && str > temp->data) 
 		{
 			temp = temp->next;
@@ -138,8 +150,8 @@ bool LKList::insert(const TBString& str)
 			return false;
 		if (temp != nullptr) 
 		{ // add before end
-			Node* before = temp->prev;
-			Node* after = temp;
+			Node<T>* before = temp->prev;
+			Node<T>* after = temp;
 			temp = new Node(str);
 			if (before != nullptr) 
 			{ // insert
@@ -166,7 +178,9 @@ bool LKList::insert(const TBString& str)
 	count += (didInsert ? 1 : 0);
 	return didInsert;
 }
-void LKList::clear() 
+
+template <typename T>
+void LkList<T>::clear() 
 {
 	if (count == 0)
 		return;
@@ -179,32 +193,42 @@ void LKList::clear()
 	head = tail = nullptr;
 	count = 0;
 }
-void LKList::resetIterator() const 
+
+template <typename T>
+void LkList<T>::resetIterator() const 
 {
 	it = head;
 }
-bool LKList::hasMore() const 
+
+template <typename T>
+bool LkList<T>::hasMore() const 
 {
 	return (it != nullptr);
 }
-TBString LKList::next() const 
-{ // best: const TBString& LKList::next() const
+
+template <typename T>
+T LkList<T>::next() const 
+{   
+	// best: const TBString& LkList::next() const
 	//{
 	//Node* temp = it; // better
 	//it = it->next;
 	//return TBString(temp->data);
 	// "normal" not so good
-	TBString str = it->data;
+	T str = it->data;
 	it = it->next;
 	return str;
 }
-ostream& operator << (ostream& outStr, const LKList& lst) 
+
+template <typename T>
+ostream& operator << (ostream& outStr, const LkList<T>& lst) 
 {
 	lst.resetIterator();
 	while (lst.hasMore())
 		outStr << lst.next() << " ";
 	return outStr;
 }
-//void LKList::merge(LKList & src) 
+
+//void LkList::merge(LkList & src) 
 //{
 //}
