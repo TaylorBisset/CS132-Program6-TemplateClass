@@ -16,13 +16,161 @@ Repo:           https://github.com/TaylorBisset/CS132-Program6-TemplateClass
 */
 
 #include <iostream>
+#include <fstream>
+#include "double_linked_list.h"
 
 using namespace std;
 
+void changer(DoubleLinkedList list);
+
 int main()
 {
-    std::cout << "Hello World!\n";
+    DoubleLinkedList list1;
+    DoubleLinkedList list2;
+    DoubleLinkedList modList1;
+    DoubleLinkedList modList2;
+
+    // read infile1
+    ifstream infile1("infile1.txt");
+    if (infile1.is_open())
+    {
+        TBString word;
+        while (infile1 >> word)
+        {
+            list1.insert(word);
+        }
+        infile1.close();
+    }
+    else
+    {
+        cout << "Error opening infile1.txt" << endl;
+    }
+
+    // read infile2
+    ifstream infile2("infile2.txt");
+    if (infile2.is_open())
+    {
+        TBString word;
+        while (infile2 >> word)
+        {
+            list2.insert(word);
+        }
+        infile2.close();
+    }
+    else
+    {
+        cout << "Error opening infile2.txt" << endl;
+    }
+
+    cout << "\n- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -\n";
+    cout << endl << "- v - v - v - v - v - After reading files - v - v - v - v - v -" << endl << endl;
+
+    modList1 = list1;
+    modList2 = list2;
+
+    // output sizes
+    cout << "Size of list1: " << list1.getCount() << endl;
+    cout << "Size of list2: " << list2.getCount() << endl;
+    cout << endl;
+    cout << "Size of modList1: " << modList1.getCount() << endl;
+    cout << "Size of modList2: " << modList2.getCount() << endl;
+    cout << endl;
+    cout << "Created Count from TBString: " << TBString::getCreatedCount() << endl;
+    cout << "Current Count from TBString: " << TBString::getCurrentCount() << endl;
+
+    cout << endl << "- v - v - v - v - v - After removing from lists - v - v - v - v - v -" << endl << endl;
+    // remove list1 strings from modList1
+    TBString str1;
+    modList1.resetIteration();
+    while (modList1.hasMore())
+    {
+        str1 = modList1.next();
+        if (list2.remove(str1))
+        {
+            modList1.remove(str1);
+        }
+    }
+
+    // remove list2 strings from modList2
+    TBString str2;
+    modList2.resetIteration();
+    while (modList2.hasMore())
+    {
+        str2 = modList2.next();
+        if (list1.remove(str2))
+        {
+            modList2.remove(str2);
+        }
+    }
+
+    cout << "Size of list1: " << list1.getCount() << endl;
+    cout << "Size of list2: " << list2.getCount() << endl;
+    cout << endl;
+    cout << "Size of modList1: " << modList1.getCount() << endl;
+    cout << "Size of modList2: " << modList2.getCount() << endl;
+    cout << endl;
+    cout << "Created Count from TBString: " << TBString::getCreatedCount() << endl;
+    cout << "Current Count from TBString: " << TBString::getCurrentCount() << endl;
+
+    cout << endl << "- v - v - v - v - v - After Changer function - v - v - v - v - v -" << endl << endl;
+
+    changer(modList1);
+    cout << "Inside changer function: size of modList1 is " << modList1.getCount() << endl;
+    cout << endl;
+    changer(modList2);
+    cout << "Inside changer function: size of modList2 is " << modList2.getCount() << endl;
+    cout << endl;
+    cout << "Created Count from TBString: " << TBString::getCreatedCount() << endl;
+    cout << "Current Count from TBString: " << TBString::getCurrentCount() << endl;
+
+    cout << "\n- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -\n";
+
+    ofstream outfile1("outfile1.txt");
+    modList1.resetIteration();
+    int wordCount = 0;
+
+    while (modList1.hasMore())
+    {
+
+        outfile1 << modList1.next() << " ";
+        wordCount++;
+
+        if (wordCount % 10 == 0)
+        {
+            outfile1 << endl;
+        }
+    }
+    outfile1.close();
+
+    ofstream outfile2("outfile2.txt");
+    modList2.resetIteration();
+    wordCount = 0;
+
+    while (modList2.hasMore())
+    {
+
+        outfile2 << modList2.next() << " ";
+        wordCount++;
+
+        if (wordCount % 10 == 0)
+        {
+            outfile2 << endl;
+        }
+    }
+    outfile2.close();
+
+    return 0;
 }
+
+void changer(DoubleLinkedList list)
+{
+    TBString zip("ZIP");
+    TBString zap("ZAP");
+    list.insert(zip);
+    list.insert(zap);
+    cout << "Inside changer function: size of list is " << list.getCount() << endl;
+}
+
 
 /*
 
