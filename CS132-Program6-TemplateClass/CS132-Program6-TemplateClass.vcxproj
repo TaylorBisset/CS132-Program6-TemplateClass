@@ -131,6 +131,7 @@
     <ClCompile Include="TBString.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="double_linked_list.h" />
     <ClInclude Include="node.h" />
     <ClInclude Include="TBString.h" />
   </ItemGroup>
