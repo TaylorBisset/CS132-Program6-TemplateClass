@@ -8,10 +8,10 @@ It defines the structure and interface of the class.
 #ifndef LKLIST_H
 #define LKLIST_H
 
-#include <string>
+#include <iostream>
 #include "TBString.h"
 
-using namespace std;
+template <typename T>
 class Node 
 {
 public:
@@ -30,6 +30,7 @@ public:
 	Node* prev;
 };
 
+template <typename T>
 class LKList 
 {
 public:
@@ -38,25 +39,26 @@ public:
 	LKList(LKList& other);
 	// LKList& operator=(const LKList& other);
 
-	bool insert(const TBString& str);
-	bool insert_back(const TBString& str);
+	bool insert(const T& str);
+	bool insert_back(const T& str);
 
-	bool remove(const TBString& str);
+	bool remove(const T& str);
 
 	//void merge(LKList & src);
 
 	void resetIterator()const;
 	bool hasMore()const;
-	TBString next()const;
+	T next()const;
 
 	int size() const;
 	void clear();
 
 private:
-	Node* head, * tail;
-	mutable Node* it;
+	Node<T>* head, * tail;
+	mutable Node<T>* it;
 	int count;
 };
 
-ostream& operator << (ostream& outStr, const LKList& lst);
+template <typename T>
+ostream& operator << (ostream& outStr, const LKList<T>& lst);
 #endif // LKLIST_H
