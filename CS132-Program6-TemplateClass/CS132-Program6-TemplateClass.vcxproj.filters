@@ -35,6 +35,9 @@
     <ClInclude Include="double_linked_list.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="LkList.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Text Include="infile1.txt" />

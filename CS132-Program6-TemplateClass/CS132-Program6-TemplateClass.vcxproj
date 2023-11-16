@@ -133,6 +133,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="double_linked_list.h" />
+    <ClInclude Include="LkList.h" />
     <ClInclude Include="node.h" />
     <ClInclude Include="TBString.h" />
   </ItemGroup>
