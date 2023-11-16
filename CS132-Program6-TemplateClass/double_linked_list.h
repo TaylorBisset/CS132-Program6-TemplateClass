@@ -27,7 +27,7 @@ public:
     ~DoubleLinkedList();
 
     // Output operator
-    friend ostream& operator<<(ostream& outputStrm, const DoubleLinkedList& dll);
+    friend std::ostream& operator<<(std::ostream& outputStrm, const DoubleLinkedList& dll);
 
     // Insert a string into the list
     bool insert(const TBString& str);

@@ -81,7 +81,7 @@ char TBString::at(int index)
 	}
 }
 
-istream& operator>>(istream& inputStrm, TBString& tbStr)		// replaces `bool TBString::read(istream& inputStrm)`
+std::istream& operator>>(std::istream& inputStrm, TBString& tbStr)		// replaces `bool TBString::read(istream& inputStrm)`
 {
 	char inputWord[100];
 	if (inputStrm >> inputWord)
@@ -107,7 +107,7 @@ istream& operator>>(istream& inputStrm, TBString& tbStr)		// replaces `bool TBSt
 	return inputStrm;
 }
 
-ostream& operator<<(ostream& outputStrm, const TBString& tbStr)	// replaces `void TBString::write(ostream& outputStrm)`
+std::ostream& operator<<(std::ostream& outputStrm, const TBString& tbStr)	// replaces `void TBString::write(ostream& outputStrm)`
 {
 	outputStrm << tbStr.str;
 	return outputStrm;

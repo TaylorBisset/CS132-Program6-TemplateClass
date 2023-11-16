@@ -64,7 +64,7 @@ DoubleLinkedList::~DoubleLinkedList()
 }
 
 // Output operator
-ostream& operator<<(ostream& outputStrm, const DoubleLinkedList& dll)
+std::ostream& operator<<(std::ostream& outputStrm, const DoubleLinkedList& dll)
 {
 	Node* current = dll.head;
 	while (current != nullptr)
