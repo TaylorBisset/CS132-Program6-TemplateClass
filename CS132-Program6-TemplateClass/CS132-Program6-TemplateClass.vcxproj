@@ -128,6 +128,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="double_linked_list.cpp" />
+    <ClCompile Include="LkList.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="TBString.cpp" />
   </ItemGroup>
