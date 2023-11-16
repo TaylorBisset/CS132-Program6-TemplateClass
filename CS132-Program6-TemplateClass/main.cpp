@@ -157,6 +157,25 @@ int main()
     }
     outfile2.close();
 
+    // modification added for mian() requirements in assignemnt details
+    LinkedList<int> intList;
+    for (int i = 20; i > 0; i -= 2)
+        intList.insert(i);
+
+    for (int i = 25; i > 0; i -= 5)
+        intList.insert(i);
+
+    std::cout << "intlist: " << intList << "  size:" << intList.size() << std::endl << std::endl;
+
+    LinkedList<double> dblList;
+    for (double i = 10.9; i > 0; i -= .57)
+        dblList.insert(i);
+
+    for (double i = 24.8; i > 5; i -= .64)
+        dblList.insert(i);
+
+    std::cout << "dblList: " << dblList << "  size:" << dblList.size() << std::endl << std::endl;
+
     return 0;
 }
 
