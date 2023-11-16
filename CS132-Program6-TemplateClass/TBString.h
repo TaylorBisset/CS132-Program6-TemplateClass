@@ -10,8 +10,6 @@ It defines the structure and interface of the class.
 
 #include <iostream>
 
-using namespace std;
-
 class TBString
 {    // You NEED to change the name of the class to reflect your name 
                     //   for example Nancy Programmer would use the name NPString 
@@ -26,8 +24,8 @@ public:
 
     char& operator[](int index);
     char at(int index);
-    friend istream& operator>>(istream& inputStrm, TBString& tbStr);        // replaces `bool read(istream& inputStrm);`
-    friend ostream& operator<<(ostream& outputStrm, const TBString& tbStr); // replaces `void write(ostream& outputStrm);`
+    friend std::istream& operator>>(std::istream& inputStrm, TBString& tbStr);        // replaces `bool read(istream& inputStrm);`
+    friend std::ostream& operator<<(std::ostream& outputStrm, const TBString& tbStr); // replaces `void write(ostream& outputStrm);`
 
     friend TBString operator+(const TBString& lvalue, const TBString& rvalue);
 

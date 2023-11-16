@@ -60,5 +60,5 @@ private:
 };
 
 template <typename T>
-ostream& operator << (ostream& outStr, const LkList<T>& lst);
+std::ostream& operator << (std::ostream& outStr, const LkList<T>& lst);
 #endif // LKLIST_H

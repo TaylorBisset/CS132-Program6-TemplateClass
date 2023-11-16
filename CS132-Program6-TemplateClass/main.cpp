@@ -17,21 +17,19 @@ Repo:           https://github.com/TaylorBisset/CS132-Program6-TemplateClass
 
 #include <iostream>
 #include <fstream>
-#include "double_linked_list.h"
+#include "LkList.h"
 
-using namespace std;
-
-void changer(DoubleLinkedList list);
+void changer(LkList<TBString>& list);
 
 int main()
 {
-    DoubleLinkedList list1;
-    DoubleLinkedList list2;
-    DoubleLinkedList modList1;
-    DoubleLinkedList modList2;
+    LkList<TBString> list1;
+    LkList<TBString> list2;
+    LkList<TBString> modList1;
+    LkList<TBString> modList2;
 
     // read infile1
-    ifstream infile1("infile1.txt");
+    std::ifstream infile1("infile1.txt");
     if (infile1.is_open())
     {
         TBString word;
@@ -43,11 +41,11 @@ int main()
     }
     else
     {
-        cout << "Error opening infile1.txt" << endl;
+        std::cout << "Error opening infile1.txt" << std::endl;
     }
 
     // read infile2
-    ifstream infile2("infile2.txt");
+    std::ifstream infile2("infile2.txt");
     if (infile2.is_open())
     {
         TBString word;
@@ -59,26 +57,26 @@ int main()
     }
     else
     {
-        cout << "Error opening infile2.txt" << endl;
+        std::cout << "Error opening infile2.txt" << std::endl;
     }
 
-    cout << "\n- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -\n";
-    cout << endl << "- v - v - v - v - v - After reading files - v - v - v - v - v -" << endl << endl;
+    std::cout << "\n- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -\n";
+    std::cout << std::endl << "- v - v - v - v - v - After reading files - v - v - v - v - v -" << std::endl << std::endl;
 
     modList1 = list1;
     modList2 = list2;
 
     // output sizes
-    cout << "Size of list1: " << list1.getCount() << endl;
-    cout << "Size of list2: " << list2.getCount() << endl;
-    cout << endl;
-    cout << "Size of modList1: " << modList1.getCount() << endl;
-    cout << "Size of modList2: " << modList2.getCount() << endl;
-    cout << endl;
-    cout << "Created Count from TBString: " << TBString::getCreatedCount() << endl;
-    cout << "Current Count from TBString: " << TBString::getCurrentCount() << endl;
+    std::cout << "Size of list1: " << list1.size() << std::endl;
+    std::cout << "Size of list2: " << list2.size() << std::endl;
+    std::cout << std::endl;
+    std::cout << "Size of modList1: " << modList1.size() << std::endl;
+    std::cout << "Size of modList2: " << modList2.size() << std::endl;
+    std::cout << std::endl;
+    std::cout << "Created Count from TBString: " << TBString::getCreatedCount() << std::endl;
+    std::cout << "Current Count from TBString: " << TBString::getCurrentCount() << std::endl;
 
-    cout << endl << "- v - v - v - v - v - After removing from lists - v - v - v - v - v -" << endl << endl;
+    std::cout << std::endl << "- v - v - v - v - v - After removing from lists - v - v - v - v - v -" << std::endl << std::endl;
     // remove list1 strings from modList1
     TBString str1;
     modList1.resetIteration();
@@ -103,29 +101,29 @@ int main()
         }
     }
 
-    cout << "Size of list1: " << list1.getCount() << endl;
-    cout << "Size of list2: " << list2.getCount() << endl;
-    cout << endl;
-    cout << "Size of modList1: " << modList1.getCount() << endl;
-    cout << "Size of modList2: " << modList2.getCount() << endl;
-    cout << endl;
-    cout << "Created Count from TBString: " << TBString::getCreatedCount() << endl;
-    cout << "Current Count from TBString: " << TBString::getCurrentCount() << endl;
+    std::cout << "Size of list1: " << list1.size() << std::endl;
+    std::cout << "Size of list2: " << list2.size() << std::endl;
+    std::cout << std::endl;
+    std::cout << "Size of modList1: " << modList1.size() << std::endl;
+    std::cout << "Size of modList2: " << modList2.size() << std::endl;
+    std::cout << std::endl;
+    std::cout << "Created Count from TBString: " << TBString::getCreatedCount() << std::endl;
+    std::cout << "Current Count from TBString: " << TBString::getCurrentCount() << std::endl;
 
-    cout << endl << "- v - v - v - v - v - After Changer function - v - v - v - v - v -" << endl << endl;
+    std::cout << std::endl << "- v - v - v - v - v - After Changer function - v - v - v - v - v -" << std::endl << std::endl;
 
     changer(modList1);
-    cout << "Inside changer function: size of modList1 is " << modList1.getCount() << endl;
-    cout << endl;
+    std::cout << "Inside changer function: size of modList1 is " << modList1.size() << std::endl;
+    std::cout << std::endl;
     changer(modList2);
-    cout << "Inside changer function: size of modList2 is " << modList2.getCount() << endl;
-    cout << endl;
-    cout << "Created Count from TBString: " << TBString::getCreatedCount() << endl;
-    cout << "Current Count from TBString: " << TBString::getCurrentCount() << endl;
+    std::cout << "Inside changer function: size of modList2 is " << modList2.size() << std::endl;
+    std::cout << std::endl;
+    std::cout << "Created Count from TBString: " << TBString::getCreatedCount() << std::endl;
+    std::cout << "Current Count from TBString: " << TBString::getCurrentCount() << std::endl;
 
-    cout << "\n- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -\n";
+    std::cout << "\n- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -\n";
 
-    ofstream outfile1("outfile1.txt");
+    std::ofstream outfile1("outfile1.txt");
     modList1.resetIteration();
     int wordCount = 0;
 
@@ -137,12 +135,12 @@ int main()
 
         if (wordCount % 10 == 0)
         {
-            outfile1 << endl;
+            outfile1 << std::endl;
         }
     }
     outfile1.close();
 
-    ofstream outfile2("outfile2.txt");
+    std::ofstream outfile2("outfile2.txt");
     modList2.resetIteration();
     wordCount = 0;
 
@@ -154,7 +152,7 @@ int main()
 
         if (wordCount % 10 == 0)
         {
-            outfile2 << endl;
+            outfile2 << std::endl;
         }
     }
     outfile2.close();
@@ -162,13 +160,13 @@ int main()
     return 0;
 }
 
-void changer(DoubleLinkedList list)
+void changer(LkList<TBString>& list)
 {
     TBString zip("ZIP");
     TBString zap("ZAP");
     list.insert(zip);
     list.insert(zap);
-    cout << "Inside changer function: size of list is " << list.getCount() << endl;
+    std::cout << "Inside changer function: size of list is " << list.size() << std::endl;
 }
 
 
@@ -190,7 +188,7 @@ Make the changes as needed.....until the red underscores go away.....or at least
 This process of converting a class to templates may give you some strange errors, 
 and this is why I give you a whole class to work on this with some assistance.  
 If you are having problems getting things to work and aren't able to finish it in the class time given, 
-then I would recommend to come to the Open Lab times after class or my office hours on Wednesday and Friday.
+then I would recommstd::end to come to the Open Lab times after class or my office hours on Wednesday and Friday.
 
 Modifications to Main if you are modifying program 4:
 
@@ -198,8 +196,8 @@ Do the normal requirements from program 4
 
 read into list1 and list2
 make modlist1 and modlist2 and remove the word as before
-cout the size of the 4 lists
-cout the first 5 words from modlist1 and modlist2 using iterators
+std::cout the size of the 4 lists
+std::cout the first 5 words from modlist1 and modlist2 using iterators
 add the following modifications to main to create other types of LinkedList
 
 ```
@@ -210,7 +208,7 @@ add the following modifications to main to create other types of LinkedList
     for (int i = 25; i > 0; i -= 5)
        intList.insert(i);
 
-    cout << "intlist: " << intList << "  size:" << intList.size() << endl << endl;
+    std::cout << "intlist: " << intList << "  size:" << intList.size() << std::endl << std::endl;
 
     LinkedList<double> dblList;
     for (double i = 10.9; i > 0; i -= .57)
@@ -219,7 +217,7 @@ add the following modifications to main to create other types of LinkedList
     for (double i = 24.8; i > 5; i -= .64)
        dblList.insert(i);
 
-    cout << "dblList: " << dblList << "  size:" << dblList.size() << endl << endl;
+    std::cout << "dblList: " << dblList << "  size:" << dblList.size() << std::endl << std::endl;
 ```
 
 */
