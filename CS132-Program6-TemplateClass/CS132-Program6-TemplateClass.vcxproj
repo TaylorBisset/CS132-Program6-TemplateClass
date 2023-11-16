@@ -136,6 +136,9 @@
     <ClInclude Include="node.h" />
     <ClInclude Include="TBString.h" />
   </ItemGroup>
+  <ItemGroup>
+    <Text Include="infile1.txt" />
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>
