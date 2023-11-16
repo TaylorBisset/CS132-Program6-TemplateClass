@@ -131,6 +131,7 @@
     <ClCompile Include="TBString.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="node.h" />
     <ClInclude Include="TBString.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
