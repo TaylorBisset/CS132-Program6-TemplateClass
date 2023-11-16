@@ -79,7 +79,7 @@ int main()
     std::cout << std::endl << "- v - v - v - v - v - After removing from lists - v - v - v - v - v -" << std::endl << std::endl;
     // remove list1 strings from modList1
     TBString str1;
-    modList1.resetIteration();
+    modList1.resetIterator();
     while (modList1.hasMore())
     {
         str1 = modList1.next();
@@ -91,7 +91,7 @@ int main()
 
     // remove list2 strings from modList2
     TBString str2;
-    modList2.resetIteration();
+    modList2.resetIterator();
     while (modList2.hasMore())
     {
         str2 = modList2.next();
@@ -124,7 +124,7 @@ int main()
     std::cout << "\n- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -\n";
 
     std::ofstream outfile1("outfile1.txt");
-    modList1.resetIteration();
+    modList1.resetIterator();
     int wordCount = 0;
 
     while (modList1.hasMore())
@@ -141,7 +141,7 @@ int main()
     outfile1.close();
 
     std::ofstream outfile2("outfile2.txt");
-    modList2.resetIteration();
+    modList2.resetIterator();
     wordCount = 0;
 
     while (modList2.hasMore())
