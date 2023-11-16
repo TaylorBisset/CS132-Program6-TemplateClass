@@ -139,6 +139,9 @@
   <ItemGroup>
     <Text Include="infile1.txt" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="infile2.txt added" />
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>

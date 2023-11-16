@@ -39,4 +39,7 @@
   <ItemGroup>
     <Text Include="infile1.txt" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="infile2.txt added" />
+  </ItemGroup>
 </Project>
