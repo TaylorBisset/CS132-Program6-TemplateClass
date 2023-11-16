@@ -138,9 +138,10 @@
   </ItemGroup>
   <ItemGroup>
     <Text Include="infile1.txt" />
+    <Text Include="outfile1.txt" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="infile2.txt added" />
+    <None Include="infile2.txt" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
