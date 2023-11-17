@@ -29,6 +29,7 @@ public:
 
     friend TBString operator+(const TBString& lvalue, const TBString& rvalue);
 
+    bool operator!=(const TBString& argStr) const;
     bool operator<(const TBString& argStr) const;       // replaces `bool lessThan(const TBString& argStr);`
     bool operator>(const TBString& argStr) const;       // replaces `bool greaterThan(const TBString& argStr);`
     bool operator==(const TBString& argStr) const;      // replaces `bool equals(const TBString& argStr);`

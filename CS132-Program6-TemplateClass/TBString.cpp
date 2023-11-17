@@ -152,6 +152,11 @@ TBString operator+(const TBString& lvalue, const TBString& rvalue)
 	return concatenated;
 }
 
+bool TBString::operator!=(const TBString& argStr) const
+{
+	return !(operator==(argStr));
+}
+
 bool TBString::operator<(const TBString& argStr) const			// replaces `bool TBString::lessThan(const TBString& argStr)`
 {
 	return compareCaseInsensitive(str, argStr.str) < 0;

@@ -26,7 +26,9 @@ public:
 		next = prev = nullptr;
 	}
 
-	TBString data;
+	Node(TBString newData) : data(newData), next(nullptr), prev(nullptr) {}
+
+	T data;
 	Node* next;
 	Node* prev;
 };
