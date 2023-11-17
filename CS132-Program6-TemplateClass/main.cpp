@@ -18,6 +18,7 @@ Repo:           https://github.com/TaylorBisset/CS132-Program6-TemplateClass
 #include <iostream>
 #include <fstream>
 #include "LkList.h"
+#include "LkList.cpp"
 
 void changer(LkList<TBString>& list);
 

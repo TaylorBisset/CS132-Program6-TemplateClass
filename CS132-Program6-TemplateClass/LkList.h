@@ -16,21 +16,12 @@ template <typename T>
 class Node 
 {
 public:
-	Node() 
-	{
-		next = prev = nullptr;
-	}
-	Node(TBString num) 
-	{
-		data = num;
-		next = prev = nullptr;
-	}
+    Node();
+    Node(TBString newData);
 
-	Node(TBString newData) : data(newData), next(nullptr), prev(nullptr) {}
-
-	T data;
-	Node* next;
-	Node* prev;
+    T data;
+    Node* next;
+    Node* prev;
 };
 
 template <typename T>
@@ -62,12 +53,7 @@ private:
 	int count;
 };
 
-template class LkList<TBString>;
-template class LkList<int>;
-template class LkList<double>;
-
 template <typename T>
-std::ostream& operator << (std::ostream& outStr, const LkList<T>& lst);
-
+std::ostream& operator<<(std::ostream& outStr, const LkList<T>& lst);
 
 #endif // LKLIST_H

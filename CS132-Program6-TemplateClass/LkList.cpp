@@ -8,6 +8,15 @@ It contains the actual code for the class's methods and functions.
 #include "LkList.h"
 
 template <typename T>
+Node<T>::Node() : next(nullptr), prev(nullptr) {}
+
+template <typename T>
+Node<T>::Node(TBString num) : data(num), next(nullptr), prev(nullptr) {}
+
+template <typename T>
+Node<T>::Node(TBString newData) : data(newData), next(nullptr), prev(nullptr) {}
+
+template <typename T>
 LkList<T>::LkList() 
 {
 	head = nullptr;
@@ -46,11 +55,11 @@ bool LkList<T>::insert_back(const T& str)
 {
 	if (count == 0) 
 	{ // empty list
-		head = tail = new Node<T>(str);
+		head = tail = new Node<T>(TBString(str));
 	}
 	else 
 	{ // >1 count, then add back
-		Node<T>* temp = new Node<T>(str);
+		Node<T>* temp = new Node<T>(TBString(str));
 		tail->next = temp;
 		temp->prev = tail;
 		tail = temp;
@@ -119,7 +128,7 @@ bool LkList<T>::insert(const T& str)
 	bool didInsert = false;
 	if (count == 0) 
 	{ // empty list
-		head = tail = new Node<T>(str);
+		head = tail = new Node<T>(TBString(str));
 		didInsert = true;
 	}
 	else if (count == 1) 
@@ -152,7 +161,7 @@ bool LkList<T>::insert(const T& str)
 		{ // add before end
 			Node<T>* before = temp->prev;
 			Node<T>* after = temp;
-			temp = new Node<T>(str);
+			temp = new Node<T>(TBString(str));
 			if (before != nullptr) 
 			{ // insert
 				before->next = temp;
