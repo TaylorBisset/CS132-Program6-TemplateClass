@@ -16,8 +16,8 @@ template <typename T>
 class Node 
 {
 public:
-    Node();
-    Node(TBString newData);
+	Node();
+	Node(TBString num);
 
     T data;
     Node* next;

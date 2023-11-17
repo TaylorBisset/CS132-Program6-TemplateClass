@@ -158,7 +158,7 @@ int main()
     }
     outfile2.close();
 
-    // modification added for mian() requirements in assignemnt details
+    // modification added for main() requirements in assignment details
     LkList<int> intList;
     for (int i = 20; i > 0; i -= 2)
         intList.insert(i);
