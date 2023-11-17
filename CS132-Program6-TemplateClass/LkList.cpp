@@ -19,7 +19,7 @@ LkList<T>::LkList()
 template <typename T>
 LkList<T>::~LkList() 
 { 
-	//TODO need to write this destructor
+	clear();
 }
 
 template <typename T>
@@ -180,17 +180,15 @@ bool LkList<T>::insert(const T& str)
 }
 
 template <typename T>
-void LkList<T>::clear() 
+void LkList<T>::clear()
 {
-	if (count == 0)
-		return;
-	while (tail != head) 
+	while (head != nullptr)
 	{
-		tail = tail->prev;
-		delete tail->next;
+		Node<T>* temp = head;
+		head = head->next;
+		delete temp;
 	}
-	delete head;
-	head = tail = nullptr;
+	tail = nullptr;
 	count = 0;
 }
 
