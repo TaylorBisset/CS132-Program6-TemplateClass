@@ -85,29 +85,31 @@ char TBString::at(int index)
 
 std::istream& operator>>(std::istream& inputStrm, TBString& tbStr)		// replaces `bool TBString::read(istream& inputStrm)`
 {
-	char inputWord[100];
+	const int maxWordLength = 100;
+	char inputWord[maxWordLength];
+
 	if (inputStrm >> inputWord)
 	{
-		int length = strlen(inputWord);
-
-		// remove punctuation
+		int length = 0;
+		while (inputWord[length] != '\0' && !ispunct(inputWord[length]))
+		{
+			length++;
+		}
 		while (length > 0 && ispunct(inputWord[length - 1]))
 		{
-			inputWord[length - 1] = '\0';
 			length--;
 		}
-
-		if (tbStr.str == inputWord)
+		if (tbStr.capacity() < length)
 		{
 			delete[] tbStr.str;
+			tbStr.str = new char[length + 1];
 		}
-
-		tbStr.str = new char[length + 1];
-		for (int i = 0; i <= length; ++i)
+		tbStr.end = length;
+		for (int i = 0; i < length; ++i)
 		{
 			tbStr.str[i] = inputWord[i];
 		}
-		tbStr.end = length;
+		tbStr.str[length] = '\0';
 	}
 	return inputStrm;
 }
