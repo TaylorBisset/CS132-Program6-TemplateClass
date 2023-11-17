@@ -9,6 +9,7 @@ It defines the structure and interface of the class.
 #define LKLIST_H
 
 #include <iostream>
+#include <string>
 #include "TBString.h"
 
 template <typename T>
@@ -59,10 +60,12 @@ private:
 	int count;
 };
 
+template class LkList<TBString>;
+template class LkList<int>;
+template class LkList<double>;
+
 template <typename T>
 std::ostream& operator << (std::ostream& outStr, const LkList<T>& lst);
 
 
 #endif // LKLIST_H
-
-#include "LkList.cpp"

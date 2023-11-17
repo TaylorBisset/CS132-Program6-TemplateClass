@@ -46,11 +46,11 @@ bool LkList<T>::insert_back(const T& str)
 {
 	if (count == 0) 
 	{ // empty list
-		head = tail = new Node(str);
+		head = tail = new Node<T>(str);
 	}
 	else 
 	{ // >1 count, then add back
-		Node* temp = new Node(str);
+		Node<T>* temp = new Node<T>(str);
 		tail->next = temp;
 		temp->prev = tail;
 		tail = temp;
@@ -128,11 +128,11 @@ bool LkList<T>::insert(const T& str)
 		{
 			if (head->data < str) 
 			{ // add at back
-				tail = new Node(str);
+				tail = new Node<T>(str);
 			}
 			else if (head->data > str) 
 			{ // add at front
-				head = new Node(str);
+				head = new Node<T>(str);
 			}
 			tail->prev = head;
 			head->next = tail;
@@ -152,7 +152,7 @@ bool LkList<T>::insert(const T& str)
 		{ // add before end
 			Node<T>* before = temp->prev;
 			Node<T>* after = temp;
-			temp = new Node(str);
+			temp = new Node<T>(str);
 			if (before != nullptr) 
 			{ // insert
 				before->next = temp;
@@ -169,7 +169,7 @@ bool LkList<T>::insert(const T& str)
 		else 
 		{ // add after tail
 			temp = tail;
-			tail = new Node(str);
+			tail = new Node<T>(str);
 			tail->prev = temp;
 			temp->next = tail;
 			didInsert = true;
