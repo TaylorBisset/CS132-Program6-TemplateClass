@@ -1,8 +1,11 @@
 // LkList.h
 
 /*
-Contains the declaration of the LkList class for managing linked lists of strings.
-It defines the structure and interface of the class.
+Contains the declaration of the LkList class for managing linked lists of TBStrings.
+Combining traditional linked list features with additional functionalities.
+It includes the traditional Gang of Four plus features plus an output operator, 
+and insertion, removal, and count functions. 
+It also includes Iterator functions. These functions act to facilitate in list traversal.
 */
 
 #ifndef LKLIST_H
