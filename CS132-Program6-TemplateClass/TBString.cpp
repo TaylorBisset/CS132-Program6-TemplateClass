@@ -12,8 +12,8 @@ TBString::TBString()
 	cap = 100;
 	end = 0;
 	str = new char[cap + 1];
-	str[0] = '\0';
 
+	str[0] = '\0';
 	createdCount++;
 	currentCount++;
 }
@@ -29,6 +29,8 @@ TBString::TBString(const TBString& mstr) // Copy Constructor
 		str[i] = mstr.str[i];
 	}
 	str[end] = '\0';
+	createdCount++;
+	currentCount++;
 }
 
 TBString::TBString(const char* cstr)
