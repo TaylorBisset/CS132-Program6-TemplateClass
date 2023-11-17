@@ -46,11 +46,11 @@ bool LkList<T>::insert_back(const T& str)
 {
 	if (count == 0) 
 	{ // empty list
-		head = tail = new Node<T>(TBString(str));
+		head = tail = new Node<T>(str);
 	}
 	else 
 	{ // >1 count, then add back
-		Node<T>* temp = new Node<T>(TBString(str));
+		Node<T>* temp = new Node<T>(str);
 		tail->next = temp;
 		temp->prev = tail;
 		tail = temp;
