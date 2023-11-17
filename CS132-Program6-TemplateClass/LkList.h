@@ -20,12 +20,18 @@ class Node
 {
 public:
 	Node();
-	Node(TBString num);
+	Node(T data);
 
-    T data;
-    Node* next;
-    Node* prev;
+	T data;
+	Node* next;
+	Node* prev;
 };
+
+template <typename T>
+Node<T>::Node() : next(nullptr), prev(nullptr) {}
+
+template <typename T>
+Node<T>::Node(T data) : data(data), next(nullptr), prev(nullptr) {}
 
 template <typename T>
 class LkList 
