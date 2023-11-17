@@ -221,7 +221,7 @@ T LkList<T>::next() const
 }
 
 template <typename T>
-std::ostream& operator << (std::ostream& outStr, const LkList<T>& lst)
+std::ostream& operator<<(std::ostream& outStr, const LkList<T>& lst)
 {
 	lst.resetIterator();
 	while (lst.hasMore())
