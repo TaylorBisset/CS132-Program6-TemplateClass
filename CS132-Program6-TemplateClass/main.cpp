@@ -104,7 +104,14 @@ int main()
         {
             std::cerr << "Caught exception: " << e.what() << std::endl;
         }
-        std::cout << "Processing: " << str2 << std::endl;
+        try 
+        {
+            std::cout << "Processing: " << str2 << std::endl;
+        }
+        catch (const std::exception& e) 
+        {
+            std::cerr << "Caught exception during output: " << e.what() << std::endl;
+        }
         if (list1.remove(str2))
         {
             modList2.remove(str2);

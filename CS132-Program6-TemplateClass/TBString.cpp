@@ -24,9 +24,16 @@ TBString::TBString(const TBString& mstr) // Copy Constructor
 	{
 		cap = mstr.cap;
 		end = mstr.end;
-		str = new char[cap + 1];
+		try 
+		{
+			str = new char[cap + 1];
+		}
+		catch (const std::bad_alloc& e) 
+		{
+			std::cerr << "Error: " << e.what() << std::endl;
+		}
 
-		for (int i = 0; i < end; ++i)
+		for (int i = 0; i < end && i < cap; ++i)
 		{
 			str[i] = mstr.str[i];
 		}
@@ -195,15 +202,15 @@ bool TBString::operator==(const TBString& argStr) const			// replaces `bool TBSt
 
 TBString& TBString::operator=(const TBString& argStr)			// replaces `void TBString::setEqualTo(const TBString& argStr)`
 {
-	if (this == &argStr)
+	try 
 	{
-		return *this;
-	}
+		if (this == &argStr)
+		{
+			return *this;
+		}
 
-	delete[] this->str;
+		delete[] this->str;
 
-	if (argStr.str != nullptr)
-	{
 		try 
 		{
 			this->str = new char[strlen(argStr.str) + 1];
@@ -217,14 +224,14 @@ TBString& TBString::operator=(const TBString& argStr)			// replaces `void TBStri
 			this->str[i] = argStr.str[i];
 		}
 		this->end = argStr.end;
-	}
-	else
-	{
-		this->str = nullptr;
-		this->end = 0;
-	}
 
-	return *this;
+		return *this;
+	}
+	catch (const std::bad_alloc& e) 
+	{
+		std::cerr << "Caught exception in TBString::operator=: " << e.what() << std::endl;
+		throw;
+	}
 }
 
 const char* TBString::c_str()
