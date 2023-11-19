@@ -83,12 +83,10 @@ int main()
     modList1.resetIterator();
     while (modList1.hasMore())
     {
-        std::cout << "Inside loop 1" << std::endl;
         str1 = modList1.next();
         if (list2.remove(str1))
         {
             modList1.remove(str1);
-            std::cout << "Removed from list2 and modList1" << std::endl;
         }
     }
 
@@ -99,6 +97,7 @@ int main()
     {
         std::cout << "Inside loop 2" << std::endl;
         str2 = modList2.next();
+        std::cout << "Processing: " << str2 << std::endl;
         if (list1.remove(str2))
         {
             modList2.remove(str2);
