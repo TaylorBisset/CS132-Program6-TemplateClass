@@ -96,7 +96,14 @@ int main()
     while (modList2.hasMore())
     {
         std::cout << "Inside loop 2" << std::endl;
-        str2 = modList2.next();
+        try 
+        {
+            str2 = modList2.next();
+        }
+        catch (const std::bad_alloc& e) 
+        {
+            std::cerr << "Caught exception: " << e.what() << std::endl;
+        }
         std::cout << "Processing: " << str2 << std::endl;
         if (list1.remove(str2))
         {

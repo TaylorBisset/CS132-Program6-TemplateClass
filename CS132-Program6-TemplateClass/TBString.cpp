@@ -123,7 +123,14 @@ std::istream& operator>>(std::istream& inputStrm, TBString& tbStr)		// replaces 
 
 std::ostream& operator<<(std::ostream& outputStrm, const TBString& tbStr)	// replaces `void TBString::write(ostream& outputStrm)`
 {
-	outputStrm << tbStr.str;
+	try 
+	{
+		outputStrm << tbStr.str;
+	}
+	catch (const std::exception& e) 
+	{
+		std::cerr << "Caught exception: " << e.what() << std::endl;
+	}
 	return outputStrm;
 }
 
@@ -197,7 +204,14 @@ TBString& TBString::operator=(const TBString& argStr)			// replaces `void TBStri
 
 	if (argStr.str != nullptr)
 	{
-		this->str = new char[strlen(argStr.str) + 1];
+		try 
+		{
+			this->str = new char[strlen(argStr.str) + 1];
+		}
+		catch (const std::bad_alloc& e) 
+		{
+			std::cerr << "Caught exception: " << e.what() << std::endl;
+		}
 		for (int i = 0; i <= argStr.end; ++i)
 		{
 			this->str[i] = argStr.str[i];
