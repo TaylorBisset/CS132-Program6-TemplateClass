@@ -195,12 +195,20 @@ TBString& TBString::operator=(const TBString& argStr)			// replaces `void TBStri
 
 	delete[] this->str;
 
-	this->str = new char[strlen(argStr.str) + 1];
-	for (int i = 0; i <= argStr.end; ++i)
+	if (argStr.str != nullptr)
 	{
-		this->str[i] = argStr.str[i];
+		this->str = new char[strlen(argStr.str) + 1];
+		for (int i = 0; i <= argStr.end; ++i)
+		{
+			this->str[i] = argStr.str[i];
+		}
+		this->end = argStr.end;
 	}
-	this->end = argStr.end;
+	else
+	{
+		this->str = nullptr;
+		this->end = 0;
+	}
 
 	return *this;
 }
