@@ -201,7 +201,48 @@ void changer(LkList<TBString>& list)
 
 OUTPUT: 
 
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
+- v - v - v - v - v - After reading files - v - v - v - v - v -
+
+Size of list1: 3049
+Size of list2: 2922
+
+Size of modList1: 3049
+Size of modList2: 2922
+
+Created Count from TBString: 11944
+Current Count from TBString: 5971
+
+- v - v - v - v - v - After removing from lists - v - v - v - v - v -
+
+Size of list1: 3049
+Size of list2: 2922
+
+Size of modList1: 3049
+Size of modList2: 2922
+
+Created Count from TBString: 17917
+Current Count from TBString: 5973
+
+- v - v - v - v - v - After Changer function - v - v - v - v - v -
+
+Inside changer function: size of list is 3051
+Inside changer function: size of modList1 is 3051
+
+Inside changer function: size of list is 2924
+Inside changer function: size of modList2 is 2924
+
+Created Count from TBString: 17929
+Current Count from TBString: 5977
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+intlist: 2 4 5 6 8 10 12 14 15 16 18 20 25   size:13
+
+dblList: 0.07 0.64 1.21 1.78 2.35 2.92 3.49 4.06 4.63 5.2 5.6 5.77 6.24 
+6.34 6.88 6.91 7.48 7.52 8.05 8.16 8.62 8.8 9.19 9.44 9.76 10.08 10.33 
+10.72 10.9 11.36 12 12.64 13.28 13.92 14.56 15.2 15.84 16.48 17.12 17.76 
+18.4 19.04 19.68 20.32 20.96 21.6 22.24 22.88 23.52 24.16 24.8   size:51
 
 */
 
