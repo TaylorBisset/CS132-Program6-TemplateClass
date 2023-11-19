@@ -95,7 +95,6 @@ int main()
     modList2.resetIterator();
     while (modList2.hasMore())
     {
-        std::cout << "Inside loop 2" << std::endl;
         try 
         {
             str2 = modList2.next();
@@ -103,14 +102,6 @@ int main()
         catch (const std::bad_alloc& e) 
         {
             std::cerr << "Caught exception: " << e.what() << std::endl;
-        }
-        try 
-        {
-            std::cout << "Processing: " << str2 << std::endl;
-        }
-        catch (const std::exception& e) 
-        {
-            std::cerr << "Caught exception during output: " << e.what() << std::endl;
         }
         if (list1.remove(str2))
         {
