@@ -20,17 +20,24 @@ TBString::TBString()
 
 TBString::TBString(const TBString& mstr) // Copy Constructor
 {
-	cap = mstr.cap;
-	end = mstr.end;
-	str = new char[cap + 1];
-
-	for (int i = 0; i < end; ++i)
+	try
 	{
-		str[i] = mstr.str[i];
+		cap = mstr.cap;
+		end = mstr.end;
+		str = new char[cap + 1];
+
+		for (int i = 0; i < end; ++i)
+		{
+			str[i] = mstr.str[i];
+		}
+		str[end] = '\0';
+		createdCount++;
+		currentCount++;
 	}
-	str[end] = '\0';
-	createdCount++;
-	currentCount++;
+	catch (const std::bad_alloc& e)
+	{
+		std::cerr << "Error in TBString copy constructor: " << e.what() << std::endl;
+	}
 }
 
 TBString::TBString(const char* cstr)
