@@ -37,7 +37,7 @@ TBString::TBString(const TBString& mstr) // Copy Constructor
 		{
 			str[i] = mstr.str[i];
 		}
-		str[end] = '\0';
+		str[cap] = '\0';
 		createdCount++;
 		currentCount++;
 	}
@@ -230,6 +230,7 @@ TBString& TBString::operator=(const TBString& argStr)			// replaces `void TBStri
 	catch (const std::bad_alloc& e) 
 	{
 		std::cerr << "Caught exception in TBString::operator=: " << e.what() << std::endl;
+		delete[] this->str;
 		throw;
 	}
 }
