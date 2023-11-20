@@ -97,7 +97,7 @@ char TBString::at(int index)
 	}
 }
 
-std::istream& operator>>(std::istream& inputStrm, TBString& tbStr)		// replaces `bool TBString::read(istream& inputStrm)`
+std::istream& operator>>(std::istream& inputStrm, TBString& tbStr)
 {
 	const int maxWordLength = 100;
 	char inputWord[maxWordLength];
@@ -128,7 +128,7 @@ std::istream& operator>>(std::istream& inputStrm, TBString& tbStr)		// replaces 
 	return inputStrm;
 }
 
-std::ostream& operator<<(std::ostream& outputStrm, const TBString& tbStr)	// replaces `void TBString::write(ostream& outputStrm)`
+std::ostream& operator<<(std::ostream& outputStrm, const TBString& tbStr)
 {
 	try 
 	{
@@ -185,22 +185,22 @@ bool TBString::operator!=(const TBString& argStr) const
 	return !(operator==(argStr));
 }
 
-bool TBString::operator<(const TBString& argStr) const			// replaces `bool TBString::lessThan(const TBString& argStr)`
+bool TBString::operator<(const TBString& argStr) const
 {
 	return compareCaseInsensitive(str, argStr.str) < 0;
 }
 
-bool TBString::operator>(const TBString& argStr) const			// replaces `bool TBString::greaterThan(const TBString& argStr)`
+bool TBString::operator>(const TBString& argStr) const
 {
 	return compareCaseInsensitive(str, argStr.str) > 0;
 }
 
-bool TBString::operator==(const TBString& argStr) const			// replaces `bool TBString::equals(const TBString& argStr)`
+bool TBString::operator==(const TBString& argStr) const
 {
 	return compareCaseInsensitive(str, argStr.str) == 0;
 }
 
-TBString& TBString::operator=(const TBString& argStr)			// replaces `void TBString::setEqualTo(const TBString& argStr)`
+TBString& TBString::operator=(const TBString& argStr)
 {
 	try 
 	{
@@ -252,93 +252,3 @@ int TBString::getCurrentCount()
 {
 	return currentCount;
 }
-
-/*
-bool TBString::read(istream& inputStrm)
-{
-	char inputWord[100];
-	if (inputStrm >> inputWord)
-	{
-		for (end = 0; inputWord[end] != '\0'; ++end);  			//empty loop
-
-		// cap = ??;						//TODO: needs to potentially grow for prog3
-
-		for (int i = 0; i <= end; ++i)
-		{
-			str[i] = inputWord[i];
-		}
-		return true;
-	}
-	else
-	{
-		return false;
-	}
-}
-*/
-
-/*
-void TBString::write(ostream& outputStrm)
-{
-	outputStrm << str;
-}
-*/
-
-/*
-bool TBString::lessThan(const TBString& argStr)
-{
-	int result = compareTo(this->str, argStr.str);
-	if (result == -1)t
-	{
-		return true;
-	}
-	else
-	{
-		return false;
-	}
-}
-*/
-
-/*
-bool TBString::greaterThan(const TBString& argStr)
-{
-	int result = compareTo(this->str, argStr.str);
-	if (result == 1)
-	{
-		return true;
-	}
-	else
-	{
-		return false;
-	}
-}
-*/
-
-/*
-bool TBString::equals(const TBString& argStr)
-{
-	int result = compareTo(this->str, argStr.str);
-	if (result == 0)
-	{
-		return true;
-	}
-	else
-	{
-		return false;
-	}
-
-}
-*/
-
-/*
-void TBString::setEqualTo(const TBString& argStr)
-{
-	end = argStr.end;
-
-	// cap = ??;						//TODO: needs to potentially grow for prog3
-
-	for (int i = 0; i <= end; ++i)
-	{
-		str[i] = argStr.str[i];
-	}
-}
-*/
