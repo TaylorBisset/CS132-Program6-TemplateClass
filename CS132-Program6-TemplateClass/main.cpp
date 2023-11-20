@@ -185,7 +185,7 @@ int main()
 
     std::cout << "dblList: " << dblList << "  size:" << dblList.size() << std::endl << std::endl;
 
-    return 0;
+    exit(0);
 }
 
 void changer(LkList<TBString>& list)
