@@ -193,6 +193,15 @@ int main()
     std::cout << "Size of modList1: " << modList1.size() << std::endl;
     std::cout << "Size of modList2: " << modList2.size() << std::endl;
 
+    // Output the first 5 words from modList1 using iterators
+    std::cout << "First 5 words from modList1:\n\t\t\t     ";
+    modList1.resetIterator();
+    for (int i = 0; i < 5 && modList1.hasMore(); ++i)
+    {
+        std::cout << modList1.next() << " ";
+    }
+    std::cout << std::endl;
+
     std::cout << "\n- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -\n";
 
     exit(0);
