@@ -52,7 +52,7 @@ TBString::TBString(const char* cstr)
 	for (end = 0; cstr[end] != '\0'; ++end);
 	//empty loop
 
-	cap = 100;						//TODO: needs to potentially grow for prog3
+	cap = end + 1;						//TODO: needs to potentially grow for prog3
 	str = new char[cap];
 
 	for (int i = 0; i <= end; ++i)
@@ -210,10 +210,10 @@ TBString& TBString::operator=(const TBString& argStr)
 		}
 
 		delete[] this->str;
-
+		cap = argStr.end;
 		try 
 		{
-			this->str = new char[strlen(argStr.str) + 1];
+			this->str = new char[argStr.end + 1];
 		}
 		catch (const std::bad_alloc& e) 
 		{
