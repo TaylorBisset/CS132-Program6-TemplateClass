@@ -183,7 +183,7 @@ int main()
     for (double i = 24.8; i > 5; i -= .64)
         dblList.insert(i);
 
-    std::cout << "dblList: " << dblList << "  size:" << dblList.size() << std::endl << std::endl;
+    std::cout << "dblList: " << dblList << "  size:" << dblList.size() << std::endl;
 
     std::cout << "\n- - - - - - - - - - - - - - - - - Final - - - - - - - - - - - - - - - - -\n\n";
 
@@ -272,6 +272,18 @@ dblList: 0.07 0.64 1.21 1.78 2.35 2.92 3.49 4.06 4.63 5.2 5.6 5.77 6.24
 6.34 6.88 6.91 7.48 7.52 8.05 8.16 8.62 8.8 9.19 9.44 9.76 10.08 10.33 
 10.72 10.9 11.36 12 12.64 13.28 13.92 14.56 15.2 15.84 16.48 17.12 17.76 
 18.4 19.04 19.68 20.32 20.96 21.6 22.24 22.88 23.52 24.16 24.8   size:51
+
+- - - - - - - - - - - - - - - - - Final - - - - - - - - - - - - - - - - -
+
+Size of list1: 3049
+Size of list2: 2922
+Size of modList1: 3051
+Size of modList2: 2924
+
+First 5 words from modList1:    1685 a about air along
+First 5 words from modList2:    a a as a and
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 */
 
