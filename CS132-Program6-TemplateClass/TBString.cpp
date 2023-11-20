@@ -22,7 +22,7 @@ TBString::TBString(const TBString& mstr) // Copy Constructor
 {
 	try
 	{
-		cap = mstr.cap;
+		cap = mstr.end + 1;
 		end = mstr.end;
 		try 
 		{
