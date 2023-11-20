@@ -185,6 +185,16 @@ int main()
 
     std::cout << "dblList: " << dblList << "  size:" << dblList.size() << std::endl << std::endl;
 
+    std::cout << "\n- - - - - - - - - - - - - - - - - Final - - - - - - - - - - - - - - - - -\n\n";
+
+    // Output sizes of the lists
+    std::cout << "Size of list1: " << list1.size() << std::endl;
+    std::cout << "Size of list2: " << list2.size() << std::endl;
+    std::cout << "Size of modList1: " << modList1.size() << std::endl;
+    std::cout << "Size of modList2: " << modList2.size() << std::endl;
+
+    std::cout << "\n- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -\n";
+
     exit(0);
 }
 
