@@ -30,7 +30,7 @@ TBString::TBString(const TBString& mstr) // Copy Constructor
 		}
 		catch (const std::bad_alloc& e) 
 		{
-			std::cerr << "Error: " << e.what() << std::endl;
+			std::cerr << "Error in TBString copy constructor `str = new char[cap + 1];`: " << e.what() << std::endl;
 		}
 
 		for (int i = 0; i < end && i < cap; ++i)
@@ -130,13 +130,12 @@ std::istream& operator>>(std::istream& inputStrm, TBString& tbStr)
 
 std::ostream& operator<<(std::ostream& outputStrm, const TBString& tbStr)
 {
-	try 
+	for (int i = 0; i < tbStr.end; ++i)
 	{
-		outputStrm << tbStr.str;
-	}
-	catch (const std::exception& e) 
-	{
-		std::cerr << "Caught exception: " << e.what() << std::endl;
+		if (isprint(tbStr.str[i]))
+		{
+			outputStrm << tbStr.str[i];
+		}
 	}
 	return outputStrm;
 }
